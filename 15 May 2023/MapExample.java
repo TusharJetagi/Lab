@@ -1,42 +1,45 @@
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class MapExample 
 {
     public static void main(String[] args) 
     {
+        Scanner scanner = new Scanner(System.in);
+
         // create a new map
         Map<String, String> map = new HashMap<>();
-        map.put("101", "Cricket");
-        map.put("102", "Football");
+        map.put("101", "Tushar");
+        map.put("102", "Virat");
+        map.put("103", "Rohit");
 
-        // check if map is empty
-        if (map.isEmpty()) 
+        // get input from user
+        System.out.print("Enter key to find value: ");
+        String key = scanner.nextLine();
+
+        // search for key in map
+        String value = map.get(key);
+
+        // print result
+        if (value != null) 
         {
-            System.out.println("Map is empty.");
-        }
+            System.out.println("Value found: " + value);
+            System.out.println("Object: " + map);
+        } 
         
         else 
         {
-            System.out.println("Map is not empty.");
-
-            // remove all elements from map
-            map.clear();
-
-            // check if map is empty again
-            if (map.isEmpty())
-            {
-                System.out.println("All elements have been removed from the map.");
-            } 
-            
-            else 
-            {
-                System.out.println("Could not remove all elements from the map.");
-            }
+            System.out.println("Value not found.");
         }
     }
 }
 
-/* Map is not empty.
-   All elements have been removed from the map.
+/*Enter key to find value: 101
+Value found: Tushar
+Object: {101=Tushar, 102=Virat, 103=Rohit}
+
+Enter key to find value: 105
+Value not found.
 */
